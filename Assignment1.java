@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Assignment1 
+public class Assignment1
 {
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
         ArrayList<Guess> guesses= new ArrayList<>();
         System.out.println("We have chosen a rule that some sequences of three numbers obey and some don't");
@@ -14,12 +14,12 @@ public class Assignment1
         Scanner guess=new Scanner(System.in);
         Guess a= new Guess(3,9,27,true);
         guesses.add(a);
-        
-        
-        
+
+
+        //This is the area I want to test for hotspot
         boolean done = false;
         while(!done)
-        {   
+        {
             System.out.println("Guess the rule or try an input with three numbers");
             String input=guess.nextLine();
             if (input.equalsIgnoreCase("Answer"))
@@ -28,12 +28,12 @@ public class Assignment1
                     String answer=guess.nextLine();
                     System.out.println("It always goes in increasing order");
                     System.exit(0);
-                }
+                }        //This is the area I want to test for hotspot
             else if (input.equalsIgnoreCase("previous"))
                 {
                     System.out.println(guesses);
                 }
-            else
+            else        //This is the area I want to test for hotspot
                 {
                     try
                     {
@@ -45,10 +45,10 @@ public class Assignment1
                                 integers[i]= Integer.parseInt(numbers[i]);
                             }
                         boolean rw;
-
+        //This is the area I want to test for hotspot
                         if(numbers.length>3)
                         {
-                          System.err.println("Input incorrect");                            
+                          System.err.println("Input incorrect");
                           rw=false;
                         }
                         else if(integers[0] < integers[1] && integers[1] < integers[2])
@@ -64,11 +64,10 @@ public class Assignment1
                         Guess g = new Guess(integers[0], integers[1], integers[2], rw);
                         guesses.add(g);
                     }catch(Exception e)
-                    {
+                    {        //This is the area I want to test for hotspot
                         System.err.println("Input incorrect \n");
                     }
                 }
         }
     }
 }
-  
